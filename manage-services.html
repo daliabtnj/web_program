@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Services</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS for styling -->
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Menu -->
+        <nav class="navbar">
+            <h1>Admin Dashboard</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="manage-services.html">Manage Services</a></li>
+                <li><a href="customer-requests.html">View Customer Requests</a></li>
+                <li><a href="bills-management.html">Bills Management</a></li>
+                <li><a href="business-settings.html">Business Settings</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h2>Manage Services</h2>
+
+            <!-- To add new service -->
+            <button onclick="addNewService()">Add New Service</button>
+            <table id="services-table">
+                <thead>
+                    <tr>
+                        <th>Service Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </main>
+    </div>
+
+    <!--Link to JavaScript to interact with dashboard-->
+    <script src="admin.js"></script> 
+</body>
+</html>

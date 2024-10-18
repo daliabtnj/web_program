@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">:
+    <title>Generic Company - Customer Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- footer CSS file  -->
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+    <!--This is used for the drop down menu-->
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('admin-header.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+          });
+      </script>
+
+    <main>
+    <h1>Manage Services</h1>
+
+    </main>
+
+           <!--This is used for the footer-->
+  <div id="footer-placeholder"></div>
+  <script>
+      fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
+</body>
+</html>

@@ -11,29 +11,24 @@
 </head>
 
 <body>
+
     <!--This is used for the drop down menu-->
     <div id="header-placeholder"></div>
     <script>
-
         fetch('customer-header.html')
           .then(response => response.text())
           .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
-    });
-    </script>
+          });
+      </script>
+
 
 <main>
-  <h1>Welcome to your client space !</h1>
-  <h2>Account overview</h2>
-  <p><a href="customer-account.html"><button>My Account</button></a>
-    <a href="customer-requests.html"><button>My Requests</button></a>
-    <a href="customer-bills&receipts.html"><button>Bills & Receipts</button></a>
-    <a href="customer-logout.html"><button>Log Out</button></a>
-  </p> 
+  <h1>My Account</h1>
 
 </main>
 
-<!--This is used for the footer-->
+    <!--This is used for the footer-->
 <div id="footer-placeholder"></div>
 <script>
     fetch('footer.html')
@@ -42,6 +37,6 @@
         document.getElementById('footer-placeholder').innerHTML = data;
     });
 </script>
-
+  
 </body>
 </html>

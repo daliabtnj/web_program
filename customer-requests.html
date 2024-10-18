@@ -10,19 +10,24 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 
-
 <body>
     <!--This is used for the drop down menu-->
     <div id="header-placeholder"></div>
     <script>
-        fetch('admin-header.html')
+        fetch('customer-header.html')
           .then(response => response.text())
           .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
           });
       </script>
 
-<!--footer-->
+
+<main>
+  <h1>My Requests</h1>
+
+</main>
+
+    <!--footer-->
 <footer>
     <div class="footer-container">
         <!-- Quick Links -->
@@ -63,5 +68,6 @@
         <p>&copy; 2024 SOEN287 Generic Company. All rights reserved.</p>
     </div>
 </footer>
+
 </body>
 </html>

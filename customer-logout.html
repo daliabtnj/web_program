@@ -10,19 +10,28 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 
-
 <body>
     <!--This is used for the drop down menu-->
     <div id="header-placeholder"></div>
     <script>
-        fetch('admin-header.html')
+        fetch('header.html')
           .then(response => response.text())
           .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
           });
       </script>
 
-<!--footer-->
+<main>
+  <h1>Thanks for using our services, you are logged out !</h1>
+  <p>
+    <a href="signin.html"><button>Sign In</button></a>
+    <a href="index.html"><button>Home</button></a>
+  </p>
+
+
+</main>
+
+    <!--footer-->
 <footer>
     <div class="footer-container">
         <!-- Quick Links -->
@@ -63,5 +72,6 @@
         <p>&copy; 2024 SOEN287 Generic Company. All rights reserved.</p>
     </div>
 </footer>
+
 </body>
 </html>

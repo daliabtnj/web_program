@@ -11,15 +11,8 @@
 </head>
 
 <body>
-    <!--This is used for the drop down menu-->
+    <!-- Placeholder for the header -->
     <div id="header-placeholder"></div>
-    <script>
-        fetch('header.html')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-          });
-      </script>
 
     <main>
         <section>
@@ -58,46 +51,38 @@
         </section>
     </main>
 
-<!--footer-->
-<footer>
-    <div class="footer-container">
-        <!-- Quick Links -->
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-                <li><a href="signin.html">Sign In</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="customer-dashboard.html">Customer</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="admin-dashboard.html">Admin</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-            </ul>
-        </div>
+<!-- Load the header dynamically -->
+<script>
+    // Simulating user login status with localStorage for now
+    // REPLACE WITH REAL LOGGED IN LOGIC
+    let isLoggedIn = localStorage.getItem('isLoggedIn'); 
 
-        <!-- Social Media Icons -->
-        <div class="footer-section">
-            <h4>Follow Us</h4>
-            <ul class="social-icons">
-                <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" width="24px"></a></li>
-                <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" width="24px"></a></li>
-                <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" width="24px"></a></li>
-            </ul>
-        </div>
+    // Fetch and display the correct header based on login status
+    if (isLoggedIn === 'true') {
+        // Fetch the logged-in header
+        fetch('customer-header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    } else {
+        // Fetch the logged-out header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    }
+</script>
 
-        <!-- Business Contact Info -->
-        <div class="footer-section">
-            <h4>Contact Info</h4>
-            <p>Email: <a href="mailto:generic_company@email.com">generic_company@email.com</a></p>
-            <p>Phone: <a href="tel:+1(514)1234567">+1 514 123 4567</a></p>
-            <p>Address: 123 Generic Street, Generic City, G1C G4C</p>
-        </div>
-    </div>
+    <div id="footer-placeholder"></div>
+<script>
+    fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+    });
+</script>
 
-    <div class="footer-bottom">
-        <p>&copy; 2024 SOEN287 Generic Company. All rights reserved.</p>
-    </div>
-</footer>
 </body>
 </html>

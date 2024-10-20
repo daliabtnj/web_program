@@ -1,71 +1,110 @@
-// Examples of service, requests, and bills strings for testing
-
-const services = [
-    { serviceName: 'Service 1' },
-    { serviceName: 'Service 2' },
-    { serviceName: 'Service 3' },
-    { serviceName: 'Service 4' },
+// Hardcoded examples of admins, business info, service, requests, and bills strings for testing
+const adminAccounts = [
+    { email: "admin@email.com", password: "password"},
+    { email: "admin2@email.com", password: "password2"}
 ];
 
-const requests = [
-    { customerName: 'Name 1', requestedService: 'Service 1', status: 'Pending' },
-    { customerName: 'Name 2', requestedService: 'Service 2', status: 'Completed' },
-    { customerName: 'Name 3', requestedService: 'Service 1', status: 'Pending' },
-];
+let bussinessInfo = {
+    companyName: "Company 1",
+    logo: "logo.png",
+    address: "123 Genereci Street, Generic City, GIC G4C",
+    phone: "123-456-7890"
+};
 
-const bills = [
-    { customerName: 'Name 1', amount: '$100' },
-    { customerName: 'Name 2', amount: '$500' },
-    { customerName: 'Name 3', amount: '$700' },
-];
 
-// Service Object Constructor
-function Service(serviceName, servicePrice) {
-    this.serviceName = serviceName;
-    this.servicePrice = servicePrice; // Corrected from servicePrive to servicePrice
+let services = [
+    {id: 1, serviceName: "Service 1", price: 500},
+    {id: 2, serviceName: "Service 2", price: 100},
+    {id: 3, serviceName: "Service 3", price: 400},
+    {id: 4, serviceName: "Service 4", price: 300},
+]
 
-    this.setServiceName = function (newName) {
-        this.serviceName = newName; // Added functionality to set a new service name
+// ------------------------------------------- Admin Login ------------------------------------------------
+function loginAdmin(event) {
+
+    event.preventDefault();
+
+    // Inputed email & password
+    const emailInput = document.getElementById('email').value;
+    const passwordInput = document.getElementById('password').value;
+
+    // Check if the inputed username & password corresponds to a valid admin
+    const validAdmin = adminAccounts.find(account => account.email === emailInput && account.password === passwordInput);
+
+    if (validAdmin) {
+        window.location.href = 'admin-dashboard.html'; // Leads to admin dashboard
+    }
+    else {
+        alert("Incorrect email or password.");
+    }
+
+}
+
+// ----------------------------------------- Business Settings --------------------------------------------
+function editBusinessInfo(service) {
+
+    service.preventDefault();
+
+    // Inputed changed
+    let newCompanyName = document.getElementById('companyName').value;
+    let newLogo = document.getElementById('logo').value;
+    let newAddress = document.getElementById('address').value;
+    let newPhone = document.getElementById('phone').value;
+
+    // Change the business information
+    bussinessInfo.companyName = newCompanyName;
+    bussinessInfo.logo = newLogo;
+    bussinessInfo.address = newAddress;
+    bussinessInfo.phone = newPhone;
+
+    alert("Business information has been updated.")
+   
+}
+
+// ------------------------------------------------ Services ------------------------------------------------
+
+// Add Services
+function addService(service){
+services.push({id:services.length +1, newServiceName, newServicePrice});
+alert("Service added")
+}
+
+// Edit Services
+function editService(service){
+
+    // Inputed service
+    let serviceToModify = document.getElementById('serviceId').value;
+    let newServiceName = document.getElementById('serviceName').value;
+    let newServicePrice = document.getElementById('servicePrice').value;
+
+    // Check if the service exists
+    const validService = services.findIndex(service => service.id === serviceToModify);
+
+    if(validService){
+
+        // Change service information
+        services.serviceName = newServiceName;
+        services.Price = newServicePrice;
+    }
+    else {
+        alert("Service not found");
     }
 }
 
-// Request Object Constructor
-function Request(customerName, requestedService, status) {
-    this.customerName = customerName;
-    this.requestedService = requestedService;
-    this.status = status;
-}
-
-// Bill Object Constructor
-function Bill(customerName, requestedService, amount) {
-    this.customerName = customerName;
-    this.requestedService = requestedService; // Fixed to include requestedService
-    this.amount = amount;
-}
-
-// Function to display the current services 
-function displayServicesTable() {
+// Delete Service
+function deleteService(service) {
     
-   
+    // Inputed service
+    let serviceToModify = document.getElementById('serviceId').value;
+
+    pop(services[serviceToModify -1]);
+
 }
 
-// Function to display the current requests made by clients
-function displayRequestsTable() {
-   
-}
 
-// Function to get current bills 
-function displayBillsTable() {
-  
-}
+// ------------------------------------------------  ------------------------------------------------
 
-// Call the appropriate populate function based on the current page
-if (document.getElementById('services-table')) {
-    populateServicesTable(); // Populate services if on Manage Services page
-}
-if (document.getElementById('requests-table')) {
-    populateRequestsTable(); // Populate requests if on Customer Requests page
-}
-if (document.getElementById('bills-table')) {
-    populateBillsTable(); // Populate bills if on Bills Management page
-}
+
+
+
+

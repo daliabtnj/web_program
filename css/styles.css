@@ -84,7 +84,7 @@ header ul.main-nav li ul.dropdown {
     background: #600d1a;
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     display: none;
     z-index: 999;
     padding: 0;
@@ -154,4 +154,6 @@ body {
     line-height: 1.5;              
     color: #333; 
 }
+
+
 

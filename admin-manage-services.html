@@ -4,76 +4,155 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generic Company - Customer Dashboard</title>
+    <title>Generic Company - Admin Manage Services</title>
     <link rel="stylesheet" href="css/styles.css">
-    <!-- footer CSS file  -->
     <link rel="stylesheet" href="css/footer.css">
+
 </head>
 
 <body>
-    <!--This is used for the drop down menu-->
     <div id="header-placeholder"></div>
     <script>
         fetch('admin-header.html')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-          });
-      </script>
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 
-<main>
-  <section>
-      <h1>Manage Services</h1>
-      
-      <h3>First service</h3>
-      <p>Our first service is very useful. It allows you to do stuff and to perform tasks. This service is great for 
-          clients who want the first service as it allows you to do what this general service is supposed to do. This service costs $$$$$.</p>
-          <a href="admin-edit-service.html"><button>EDIT SERVICE</button></a>
-      <button>DELETE SERVICE</button>
-      <hr>
+    <main>
+        <section>
+            <h1>Manage Services</h1>
 
-      <h3>Second service</h3>
-      <p>Our second service is very useful. It allows you to do stuff and to perform tasks. This service is great for 
-          clients who want the second service as it allows you to do what this general service is supposed to do. This service costs $$$$</p>
-          <a href="admin-edit-service.html"><button>EDIT SERVICE</button></a>
-          <button>DELETE SERVICE</button>
-      <hr>
+            <div class="service-item">
+                <h3 class="editable" contenteditable="false">First service</h3>
+                <p class="editable" contenteditable="false">Our first service is very useful. It allows you to do stuff and to perform tasks. This service is great for clients who want the first service as it allows you to do what this general service is supposed to do. This service costs $$$$$.</p>
+                <button onclick="editService(this)">EDIT SERVICE</button>
+                <button onclick="saveService(this)">SAVE SERVICE</button>
+                <button onclick="deleteService(this)">DELETE SERVICE</button>
+                <hr>
+            </div>
 
-      <h3>Third service</h3>
-      <p>Our third service is very useful. It allows you to do stuff and to perform tasks. This service is great for 
-          clients who want the third service as it allows you to do what this general service is supposed to do. This service costs $$$</p>
-          <a href="admin-edit-service.html"><button>EDIT SERVICE</button></a>
-          <button>DELETE SERVICE</button>
-      <hr>
+            <div class="service-item">
+                <h3 class="editable" contenteditable="false">Second service</h3>
+                <p class="editable" contenteditable="false">Our second service is very useful. It allows you to do stuff and to perform tasks. This service is great for clients who want the second service as it allows you to do what this general service is supposed to do. This service costs $$$$.</p>
+                <button onclick="editService(this)">EDIT SERVICE</button>
+                <button onclick="saveService(this)">SAVE SERVICE</button>
+                <button onclick="deleteService(this)">DELETE SERVICE</button>
+                <hr>
+            </div>
 
-      <h3>Other service</h3>
-      <p>Our other service is very useful. It allows you to do stuff and to perform tasks. This service is great for 
-          clients who want the other service as it allows you to do what this general service is supposed to do. This service costs $$</p>
-          <a href="admin-edit-service.html"><button>EDIT SERVICE</button></a>
-          <button>DELETE SERVICE</button>
+            <div class="service-item">
+                <h3 class="editable" contenteditable="false">Third service</h3>
+                <p class="editable" contenteditable="false">Our third service is very useful. It allows you to do stuff and to perform tasks. This service is great for clients who want the second service as it allows you to do what this general service is supposed to do. This service costs $$$$.</p>
+                <button onclick="editService(this)">EDIT SERVICE</button>
+                <button onclick="saveService(this)">SAVE SERVICE</button>
+                <button onclick="deleteService(this)">DELETE SERVICE</button>
+                <hr>
+            </div>
 
-      <hr>
+            <div class="service-item">
+                <h3 class="editable" contenteditable="false">Other service</h3>
+                <p class="editable" contenteditable="false">Our other service is very useful. It allows you to do stuff and to perform tasks. This service is great for clients who want the second service as it allows you to do what this general service is supposed to do. This service costs $$$$.</p>
+                <button onclick="editService(this)">EDIT SERVICE</button>
+                <button onclick="saveService(this)">SAVE SERVICE</button>
+                <button onclick="deleteService(this)">DELETE SERVICE</button>
+                <hr>
+            </div>
 
-      <h3>Last service</h3>
-      <p>Our last service is very useful. It allows you to do stuff and to perform tasks. This service is great for 
-          clients who want the last service as it allows you to do what this general service is supposed to do. This service costs $</p>
-          <a href="admin-edit-service.html"><button>EDIT SERVICE</button></a>
-          <button>DELETE SERVICE</button>
-      <hr>
+            <div class="service-item">
+                <h3 class="editable" contenteditable="false">Last service</h3>
+                <p class="editable" contenteditable="false">Our last service is very useful. It allows you to do stuff and to perform tasks. This service is great for clients who want the second service as it allows you to do what this general service is supposed to do. This service costs $$$$.</p>
+                <button onclick="editService(this)">EDIT SERVICE</button>
+                <button onclick="saveService(this)">SAVE SERVICE</button>
+                <button onclick="deleteService(this)">DELETE SERVICE</button>
+                <hr>
+            </div>
 
-      <a href="admin-add-service.html"><button>ADD SERVICE</button></a>
+            <!-- Add Service Box -->
+            <div class="add-service-box" id="add-service-box">
+                <h2>Add a New Service</h2>
+                <label for="new-service-name">Service Name:</label><br>
+                <input type="text" id="new-service-name" placeholder="Enter service name"><br><br>
 
-  </section>
-</main>
+                <label for="new-service-description">Service Description:</label><br>
+                <textarea id="new-service-description" rows="4" placeholder="Enter service description"></textarea><br><br>
 
-           <!--This is used for the footer-->
-  <div id="footer-placeholder"></div>
-  <script>
-      fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById('footer-placeholder').innerHTML = data;
-      });
-  </script>
+                <button onclick="addService()">ADD SERVICE</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        // Function to make the text editable
+        function editService(button) {
+            const parent = button.parentNode;
+            const serviceTitle = parent.querySelector('h3');
+            const serviceDescription = parent.querySelector('p');
+
+            serviceTitle.contentEditable = true;
+            serviceDescription.contentEditable = true;
+            serviceTitle.focus();
+        }
+
+        // Function to save the edited text (just for frontend purposes)
+        function saveService(button) {
+            const parent = button.parentNode;
+            const serviceTitle = parent.querySelector('h3');
+            const serviceDescription = parent.querySelector('p');
+
+            serviceTitle.contentEditable = false;
+            serviceDescription.contentEditable = false;
+            alert("Service updated (not persisted in backend).");
+        }
+
+        // Function to add a new service and insert it above the add service box
+        function addService() {
+            const serviceName = document.getElementById('new-service-name').value;
+            const serviceDescription = document.getElementById('new-service-description').value;
+
+            if (serviceName && serviceDescription) {
+                const newServiceHTML = `
+                <div class="service-item">
+                    <h3 class="editable" contenteditable="false">${serviceName}</h3>
+                    <p class="editable" contenteditable="false">${serviceDescription}</p>
+                    <button onclick="editService(this)">EDIT SERVICE</button>
+                    <button onclick="saveService(this)">SAVE SERVICE</button>
+                    <button onclick="deleteService(this)">DELETE SERVICE</button>
+                    <hr>
+                </div>`;
+
+                // Insert the new service above the "Add Service" box
+                const addServiceBox = document.getElementById('add-service-box');
+                addServiceBox.insertAdjacentHTML('beforebegin', newServiceHTML);
+
+                // Clear input fields
+                document.getElementById('new-service-name').value = '';
+                document.getElementById('new-service-description').value = '';
+
+                alert("New service added (not persisted in backend).");
+            } else {
+                alert("Please fill in both fields.");
+            }
+        }
+
+        // Function to delete a service
+        function deleteService(button) {
+            const parent = button.parentNode;
+            const confirmation = confirm("Are you sure you want to delete this service?");
+            if (confirmation) {
+                parent.remove();
+                alert("Service deleted (not persisted in backend).");
+            }
+        }
+    </script>
 </body>
+
 </html>
